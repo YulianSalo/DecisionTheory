@@ -1,5 +1,5 @@
 import numpy as np
-import os
+
 np.set_printoptions(suppress=True)
 
 #File content to array conversion
