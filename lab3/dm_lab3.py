@@ -88,33 +88,6 @@ def CondorsetVote(dataDictionary):
                 arrayC_B.append(key)
                 arrayC_A.append(key)
                 arrayB_A.append(key)
-            # if j == 0:
-
-            #     if dataDictionary[key][j] == 'a':
-            #         arrayA.append(key * 3)
-            #     elif dataDictionary[key][j] == 'b':
-            #         arrayB.append(key * 3)
-            #     elif dataDictionary[key][j] == 'c':
-            #         arrayC.append(key * 3)             
-
-            # elif j == 1:
-            #     if dataDictionary[key][j] == 'a':
-            #         arrayA.append(key * 2)        
-            #     elif dataDictionary[key][j] == 'b':
-            #         arrayB.append(key * 2)
-            #     elif dataDictionary[key][j] == 'c':
-            #         arrayC.append(key * 2) 
-
-            # if j == 2:
-            #     if dataDictionary[key][j] == 'a':
-            #         arrayB.append(key)
-            #         arrayC.append(key)        
-            #     elif dataDictionary[key][j] == 'b':
-            #         arrayA.append(key)
-            #         arrayC.append(key)
-            #     elif dataDictionary[key][j] == 'c':
-            #         arrayA.append(key)
-            #         arrayB.append(key)    
 
     numberA_B = sum(arrayA_B)
     numberA_C = sum(arrayA_C)
@@ -159,5 +132,4 @@ print (arrayA, arrayB, arrayC, numberA, numberB, numberC)
 
 selected1, selected1Info, selected2, selected2Info, selected3, selected3Info = CondorsetVote(dataDictionary)
 
-#print("A>B,  A>C,  B>A,  B>C,  C>A,  C>B")
 print ("Top results:", selected1, selected1Info, selected2, selected2Info, selected3, selected3Info)
