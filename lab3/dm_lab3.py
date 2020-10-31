@@ -1,9 +1,12 @@
-dataDictionary= {}
 
-with open('dataArray.txt') as f:
-    dataDictionary = {int(pa[0]): pa[1:] for pa in map(str.split, f)}
+def readFromFileToDictionary(filename):
+    dataDictionary= {}
 
-print(dataDictionary)
+    with open(filename) as f:
+        dataDictionary = {int(pa[0]): pa[1:] for pa in map(str.split, f)}
+
+    return dataDictionary
+
 
 def BordaVote(dataDictionary):
     
@@ -44,8 +47,9 @@ def BordaVote(dataDictionary):
     numberB = sum(arrayB)
     numberC = sum(arrayC)
 
-    return arrayA, arrayB, arrayC, numberA, numberB, numberC
+    return numberA, numberB, numberC
 
+#Condorset function
 def CondorsetVote(dataDictionary):
     
     arrayA_B = []
@@ -54,6 +58,7 @@ def CondorsetVote(dataDictionary):
     arrayB_C = []
     arrayC_A = []
     arrayC_B = []
+    
     for key in dataDictionary:
 
         for j in range(len(dataDictionary[key])):
@@ -126,10 +131,24 @@ def CondorsetVote(dataDictionary):
 
     return selected1, selected1Info, selected2, selected2Info, selected3, selected3Info
 
-arrayA, arrayB, arrayC, numberA, numberB, numberC = BordaVote(dataDictionary)
+#Main function
+def main():
 
-print (arrayA, arrayB, arrayC, numberA, numberB, numberC)
+    dataDictionary = readFromFileToDictionary("dataArray.txt")
+    print("Given votes by priority:", dataDictionary)
 
-selected1, selected1Info, selected2, selected2Info, selected3, selected3Info = CondorsetVote(dataDictionary)
+    numberA, numberB, numberC = BordaVote(dataDictionary)
 
-print ("Top results:", selected1, selected1Info, selected2, selected2Info, selected3, selected3Info)
+    print("\nBorda vote")
+    print("Voted for A candidate", numberA)
+    print("Voted for B candidate", numberB)
+    print("Voted for C candidate", numberC)
+    
+    selected1, selected1Info, selected2, selected2Info, selected3, selected3Info = CondorsetVote(dataDictionary)
+
+    print("\nCondorset vote")
+    print ("Top results:", selected1, selected1Info, selected2, selected2Info, selected3, selected3Info)
+
+#Main function execution
+if __name__ == "__main__":
+    main()
