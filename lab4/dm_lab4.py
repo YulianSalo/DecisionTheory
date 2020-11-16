@@ -1,12 +1,21 @@
 import pandas as pd
 
-df = pd.read_csv("data.csv")
+def main():
+    #CSV file reading
+    df = pd.read_csv("data.csv")
 
-coeff = [0.25, 0.2, 0.22, 0.18, 0.15]
+    #Coeffient definiton
+    coeff = [0.25, 0.2, 0.22, 0.18, 0.15]
 
-for i in range(len(df)):
-    df.iloc[:,i+1] *= coeff[i]
+    #Solution calculation
+    for i in range(len(df)):
+        df.iloc[:,i+1] *= coeff[i]
 
-df["sum"] = df.sum(axis=1)
+    #Summing final value for each row
+    df["sum"] = df.sum(axis=1)
 
-print (df)
+    #Result print
+    print (df)
+
+if __name__ == "main":
+    main()
