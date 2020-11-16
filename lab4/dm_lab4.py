@@ -12,7 +12,7 @@ def main():
         df.iloc[:,i+1] *= coeff[i]
 
     #Summing final value for each row
-    df["sum"] = df.sum(axis=1)
+    df["Points sum"] = df.sum(axis=1)
 
     #Result print
     print (df)
