@@ -4,7 +4,7 @@ def main():
     #CSV file reading
     df = pd.read_csv("data.csv")
 
-    #Coeffient definiton
+    #Coefficient definition
     coeff = [0.25, 0.2, 0.22, 0.18, 0.15]
 
     #Solution calculation
